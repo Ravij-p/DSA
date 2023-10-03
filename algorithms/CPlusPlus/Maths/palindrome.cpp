@@ -6,16 +6,17 @@ int main()						//Main function
 {
 	string num_str = "";		//define variable
 	cin >> num_str;				//taking input from user
-	string new_str = "";		//define a new variable
-
-	for(int x = (num_str.size()-1); x >= 0; x--){		//for loop started
-		new_str += num_str[x];							//assigning the value input by user to new variable in reverse order
-	}													//for loop end
-
-	cout << (num_str == new_str ? "palindrome" : "Non-palindrome");			//checking whether the value assigned to both variables is equal or not using ternary operator and printing whether it's palindrome or non-palindrome
-
+	int i=0,j=num_str.length()-1;               //two pointer approach
+	while(i<j){				
+		if(num_str[i++]!=num_str[j--]){                
+			cout<<"Not a Palindrome"<<endl;
+			return 0;
+		}
+	}	
+	cout<<"Palindrome"<<endl;
 	return 0;					//returning the main function
 }
 
 //complexity of the program is O(n)
+//space complexity is  O(1)
 //test cases:- 101,pop,asdfgfdsa,123454321,obobo,nancyiycnan etc.
